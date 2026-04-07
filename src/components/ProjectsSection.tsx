@@ -66,7 +66,7 @@ export function ProjectsSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl text-white mb-6">My Projects</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-emerald-400 to-blue-400 mx-auto"></div>
+          <div className="w-28 h-1.5 bg-gradient-to-r from-emerald-400 to-blue-400 mx-auto rounded-full"></div>
           <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
             Here are some of my recent projects that showcase my skills and
             passion for web development

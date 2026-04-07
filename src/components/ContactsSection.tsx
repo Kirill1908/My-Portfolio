@@ -16,16 +16,19 @@ export function ContactsSection() {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIsSubmitting(true);
-    
+
     const formData = new FormData(event.currentTarget);
-    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_KEY as string);
+    formData.append(
+      "access_key",
+      process.env.NEXT_PUBLIC_WEB3FORMS_KEY as string,
+    );
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData
+        body: formData,
       });
-      
+
       const data = await response.json();
       if (data.success) {
         setIsSuccess(true);
@@ -61,7 +64,11 @@ export function ContactsSection() {
 
   const socialLinks = [
     { icon: FaGithub, href: "https://github.com/Kirill1908", label: "GitHub" },
-    { icon: FaLinkedin, href: "https://www.linkedin.com/in/kyrylo-hasan-09634611a/", label: "LinkedIn" },
+    {
+      icon: FaLinkedin,
+      href: "https://www.linkedin.com/in/kyrylo-hasan-09634611a/",
+      label: "LinkedIn",
+    },
     { icon: Mail, href: "mailto:kyrylo.hasan.dev@gmail.com", label: "Email" },
   ];
 
@@ -76,7 +83,7 @@ export function ContactsSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl text-white mb-6">Get In Touch</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto"></div>
+          <div className="w-28 h-1.5 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
           <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
             I&apos;m always interested in new opportunities and interesting
             projects. Let&apos;s discuss how we can work together!
@@ -157,7 +164,7 @@ export function ContactsSection() {
                   />
                 </div>
 
-                <Button 
+                <Button
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-3 disabled:opacity-50 transition-all"
@@ -210,20 +217,17 @@ export function ContactsSection() {
             <div className="pt-8">
               <h4 className="text-white text-lg mb-4">Follow me</h4>
               <div className="flex space-x-4">
-                {socialLinks.map((social, index) => (
+                {socialLinks.map(({ icon: Icon, href }, index) => (
                   <motion.a
-                    key={social.label}
-                    href={social.href}
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.1, duration: 0.3 }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
+                    key={index}
+                    href={href}
                     target="_blank"
-                    className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-white hover:bg-emerald-500 hover:text-white transition-all duration-300"
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 1.2 + index * 0.1 }}
+                    className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-all duration-300"
                   >
-                    <social.icon className="w-5 h-5" />
+                    <Icon className="w-5 h-5" />
                   </motion.a>
                 ))}
               </div>
@@ -258,7 +262,9 @@ export function ContactsSection() {
             <CheckCircle2 className="w-6 h-6 text-white" />
             <div>
               <p className="font-bold text-sm">Success!</p>
-              <p className="text-xs opacity-90 text-white/90">Your message has been sent successfully.</p>
+              <p className="text-xs opacity-90 text-white/90">
+                Your message has been sent successfully.
+              </p>
             </div>
           </motion.div>
         )}

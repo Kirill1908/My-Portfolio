@@ -90,7 +90,7 @@ export function Header() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * index }}
                   onClick={() => scrollToSection(link.id)}
-                  className="text-gray-300 hover:text-white transition-colors duration-200 capitalize cursor-pointer text-base font-medium"
+                  className="text-gray-300 hover:text-emerald-400 transition-colors duration-200 capitalize cursor-pointer text-base font-medium"
                 >
                   {link.name}
                 </motion.button>
@@ -124,7 +124,7 @@ export function Header() {
                   <button
                     key={link.id}
                     onClick={() => scrollToSection(link.id)}
-                    className="text-left text-gray-300 hover:text-white transition-colors duration-200 capitalize text-base font-medium tracking-wide cursor-pointer"
+                    className="text-left text-gray-300 hover:text-emerald-400 transition-colors duration-200 capitalize text-base font-medium tracking-wide cursor-pointer"
                   >
                     {link.name}
                   </button>

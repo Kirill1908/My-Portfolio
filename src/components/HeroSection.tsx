@@ -29,6 +29,12 @@ export function HeroSection() {
     return () => cancelAnimationFrame(frame);
   }, []);
 
+    const socialLinks = [
+      { icon: FaGithub, href: "https://github.com/Kirill1908", label: "GitHub" },
+      { icon: FaLinkedin, href: "https://www.linkedin.com/in/kyrylo-hasan-09634611a/", label: "LinkedIn" },
+      { icon: Mail, href: "mailto:kyrylo.hasan.dev@gmail.com", label: "Email" },
+    ];
+
   return (
     <section
       id="home"
@@ -125,7 +131,7 @@ export function HeroSection() {
                     "_blank",
                   )
                 }
-                className="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-[1.02] active:scale-95 cursor-pointer shadow-lg shadow-emerald-500/20"
+                className="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-3 rounded-lg transition-all duration-300 transform active:scale-95 cursor-pointer shadow-lg shadow-emerald-500/20"
               >
                 View My CV
               </Button>
@@ -133,21 +139,14 @@ export function HeroSection() {
               <a
                 href="/CV_Kyrylo_Hasan_Front-End_Developer_Dnipro.pdf"
                 download="CV_Kyrylo_Hasan_Front-End_Developer_Dnipro.pdf"
-                className="flex-shrink-0 bg-emerald-500 hover:bg-emerald-600 text-white px-3 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-[1.02] active:scale-95 flex items-center justify-center cursor-pointer shadow-lg shadow-emerald-500/20"
+                className="flex-shrink-0 bg-emerald-500 hover:bg-emerald-600 text-white px-3 py-2 rounded-lg font-semibold transition-all duration-300 transform active:scale-95 flex items-center justify-center cursor-pointer shadow-lg shadow-emerald-500/20"
                 title="Download PDF"
               >
                 <Download className="w-5 h-5" />
               </a>
             </div>
             <div className="flex items-center space-x-4">
-              {[
-                { icon: FaGithub, href: "https://github.com/Kirill1908" },
-                {
-                  icon: FaLinkedin,
-                  href: "https://www.linkedin.com/in/kyrylo-hasan-09634611a/",
-                },
-                { icon: Mail, href: "mailto:kyrylo.hasan.dev@gmail.com" },
-              ].map(({ icon: Icon, href }, index) => (
+              {socialLinks.map(({ icon: Icon, href }, index) => (
                 <motion.a
                   key={index}
                   href={href}
@@ -155,7 +154,7 @@ export function HeroSection() {
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1.2 + index * 0.1 }}
-                  className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-110"
+                  className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-all duration-300"
                 >
                   <Icon className="w-5 h-5" />
                 </motion.a>
