@@ -29,11 +29,15 @@ export function HeroSection() {
     return () => cancelAnimationFrame(frame);
   }, []);
 
-    const socialLinks = [
-      { icon: FaGithub, href: "https://github.com/Kirill1908", label: "GitHub" },
-      { icon: FaLinkedin, href: "https://www.linkedin.com/in/kyrylo-hasan-09634611a/", label: "LinkedIn" },
-      { icon: Mail, href: "mailto:kyrylo.hasan.dev@gmail.com", label: "Email" },
-    ];
+  const socialLinks = [
+    { icon: FaGithub, href: "https://github.com/Kirill1908", label: "GitHub" },
+    {
+      icon: FaLinkedin,
+      href: "https://www.linkedin.com/in/kyrylo-hasan-09634611a/",
+      label: "LinkedIn",
+    },
+    { icon: Mail, href: "mailto:kyrylo.hasan.dev@gmail.com", label: "Email" },
+  ];
 
   return (
     <section
@@ -151,10 +155,14 @@ export function HeroSection() {
                   key={index}
                   href={href}
                   target="_blank"
+                  whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.2 + index * 0.1 }}
-                  className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-all duration-300"
+                  transition={{
+                    default: { delay: 1.2 + index * 0.1 },
+                    scale: { duration: 0.1 },
+                  }}
+                  className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-emerald-600 transition-all duration-300 shadow-emerald-500/20 hover:shadow-lg"
                 >
                   <Icon className="w-5 h-5" />
                 </motion.a>
@@ -178,4 +186,4 @@ export function HeroSection() {
       </div>
     </section>
   );
-};
+}

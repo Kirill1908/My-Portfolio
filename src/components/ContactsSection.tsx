@@ -6,12 +6,13 @@ import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { Mail, MapPin, Phone, CheckCircle2 } from "lucide-react";
+import { Mail, MapPin, Phone, CheckCircle2, Copy, Check } from "lucide-react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 export function ContactsSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [copiedLabel, setCopiedLabel] = useState<string | null>(null);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -42,6 +43,14 @@ export function ContactsSection() {
     }
   }
 
+  const handleCopy = (e: React.MouseEvent, value: string, label: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText(value);
+    setCopiedLabel(label);
+    setTimeout(() => setCopiedLabel(null), 2000);
+  };
+
   const contactInfo = [
     {
       icon: Mail,
@@ -59,6 +68,7 @@ export function ContactsSection() {
       icon: MapPin,
       label: "Location",
       value: "Dnipro, Ukraine",
+      href: "https://www.google.com/maps/search/?api=1&query=Dnipro,Ukraine",
     },
   ];
 
@@ -197,18 +207,34 @@ export function ContactsSection() {
                 <motion.a
                   key={info.label}
                   href={info.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.6 }}
                   viewport={{ once: true }}
-                  className="flex items-center space-x-4 p-4 bg-gray-900/50 rounded-lg border border-white/10 hover:border-emerald-500/50 transition-all duration-300 group"
+                  className="flex items-center justify-between p-4 bg-gray-900/50 rounded-lg border border-white/10 hover:border-emerald-500/50 transition-all duration-300 group relative cursor-pointer"
                 >
-                  <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500/30 transition-all duration-300">
-                    <info.icon className="w-6 h-6" />
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500/30 transition-all duration-300">
+                      <info.icon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="text-gray-400 text-sm">{info.label}</p>
+                      <p className="text-white">{info.value}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">{info.label}</p>
-                    <p className="text-white">{info.value}</p>
+
+                  {/* Copy Button */}
+                  <div
+                    onClick={(e) => handleCopy(e, info.value, info.label)}
+                    className="p-2 text-gray-500 hover:text-emerald-400 transition-colors z-10"
+                  >
+                    {copiedLabel === info.label ? (
+                      <Check className="w-5 h-5 text-emerald-500" />
+                    ) : (
+                      <Copy className="w-5 h-5 transition-opacity" />
+                    )}
                   </div>
                 </motion.a>
               ))}
@@ -222,10 +248,15 @@ export function ContactsSection() {
                     key={index}
                     href={href}
                     target="_blank"
+                    rel="noopener noreferrer"
+                    whileTap={{ scale: 0.95 }}
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 1.2 + index * 0.1 }}
-                    className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-all duration-300"
+                    transition={{
+                      default: { delay: 1.2 + index * 0.1 },
+                      scale: { duration: 0.1 },
+                    }}
+                    className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-emerald-600 transition-all duration-300 shadow-emerald-500/20 hover:shadow-lg cursor-pointer"
                   >
                     <Icon className="w-5 h-5" />
                   </motion.a>
@@ -244,7 +275,7 @@ export function ContactsSection() {
           className="border-t border-white/10 mt-16 pt-8 text-center"
         >
           <p className="text-gray-400">
-            © 2026 Kyrylo Hasan. Designed &amp; Built with ❤️ using Next.js and
+            © 2026 Kyrylo Hasan. Designed & Built with ❤️ using Next.js and
             Tailwind CSS.
           </p>
         </motion.div>
