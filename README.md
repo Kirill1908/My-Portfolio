@@ -14,11 +14,14 @@ A modern, high-performance portfolio website built to showcase my technical skil
 * **Optimization:** Next.js Image optimization and SEO-friendly metadata
 
 ## ✨ Key Technical Features
--   **Fully Responsive Architecture:** Crafted with a mobile-first approach, ensuring a seamless experience from small handheld devices to 4K displays.
--   **Performance Focused:** Achieved high Core Web Vitals scores through efficient code splitting and optimized asset loading.
--   **Modern UI/UX:** Features a professional dark mode interface with subtle micro-interactions and scroll-triggered animations.
--   **Secure Communication:** Integrated a production-ready contact system using environment variables to protect sensitive API keys.
--   **Clean Codebase:** Developed using TypeScript interfaces and modular React components for maintainability and scalability.
+* **Fully Responsive Architecture:** Crafted with a mobile-first approach, ensuring a seamless experience from small handheld devices to 4K displays.
+* **Smart UX Interactions:**
+    * **One-click Copy:** Integrated a clipboard system for contact details with real-time visual feedback, optimized for both desktop and mobile touch targets.
+    * **Dynamic Navigation:** Implemented a smooth "Back to Top" functionality that intelligently triggers based on scroll position using Framer Motion.
+* **Performance Focused:** Achieved high Core Web Vitals scores through efficient code splitting, optimized asset loading, and a refactored, lightweight CSS architecture.
+* **Modern UI/UX:** Features a professional dark mode interface with subtle micro-interactions and scroll-triggered animations.
+* **Secure Communication:** Integrated a production-ready contact system using Web3Forms and environment variables to protect sensitive API keys.
+* **Clean Codebase:** Developed using TypeScript interfaces and modular React components for maintainability and scalability.
 
 ## 📬 Contact Information
 I am currently open to new opportunities and collaborations. Feel free to reach out via the contact form on the website or directly via email: **kyrylo.hasan.dev@gmail.com**

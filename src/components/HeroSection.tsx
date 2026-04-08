@@ -2,11 +2,14 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
+import { Download } from "lucide-react";
+
 import { Button } from "./ui/button";
-import { Mail, Download } from "lucide-react";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { SOCIAL_LINKS } from "../constants/socials";
 
 export function HeroSection() {
+  const t = useTranslations("Hero");
   const [mounted, setMounted] = useState(false);
   const [particles, setParticles] = useState<
     { id: number; left: string; top: string; duration: number; delay: number }[]
@@ -28,16 +31,6 @@ export function HeroSection() {
 
     return () => cancelAnimationFrame(frame);
   }, []);
-
-  const socialLinks = [
-    { icon: FaGithub, href: "https://github.com/Kirill1908", label: "GitHub" },
-    {
-      icon: FaLinkedin,
-      href: "https://www.linkedin.com/in/kyrylo-hasan-09634611a/",
-      label: "LinkedIn",
-    },
-    { icon: Mail, href: "mailto:kyrylo.hasan.dev@gmail.com", label: "Email" },
-  ];
 
   return (
     <section
@@ -81,7 +74,7 @@ export function HeroSection() {
             transition={{ delay: 0.2 }}
             className="text-emerald-400 text-lg tracking-wider"
           >
-            Hello, I&apos;m
+            {t("greeting")}
           </motion.p>
 
           <motion.h1
@@ -90,7 +83,7 @@ export function HeroSection() {
             transition={{ delay: 0.4 }}
             className="text-5xl md:text-7xl text-white mb-6"
           >
-            Kyrylo Hasan
+            {t("name")}
           </motion.h1>
 
           <motion.div
@@ -99,13 +92,13 @@ export function HeroSection() {
             transition={{ delay: 0.6 }}
             className="text-2xl md:text-4xl text-gray-300 mb-8"
           >
-            I&apos;m a{" "}
+            {t("rolePrefix")}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-400">
-              Front-End Developer
+              {t("roleMain")}
             </span>{" "}
-            specializing in{" "}
+            {t("specializingIn")}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-              Modern Web Applications
+              {t("specializationMain")}
             </span>
           </motion.div>
 
@@ -115,10 +108,7 @@ export function HeroSection() {
             transition={{ delay: 0.8 }}
             className="text-gray-400 text-lg max-w-2xl mx-auto mb-8"
           >
-            I specialize in building high-performance web interfaces using
-            React, Next.js, and Tailwind CSS. My focus is on writing
-            pixel-perfect, clean code and ensuring seamless mobile
-            responsiveness for every project I bring to life.
+            {t("description")}
           </motion.p>
 
           <motion.div
@@ -137,20 +127,21 @@ export function HeroSection() {
                 }
                 className="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-3 rounded-lg transition-all duration-300 transform active:scale-95 cursor-pointer shadow-lg shadow-emerald-500/20"
               >
-                View My CV
+                {t("buttons.viewCv")}
               </Button>
 
               <a
                 href="/CV_Kyrylo_Hasan_Front-End_Developer_Dnipro.pdf"
                 download="CV_Kyrylo_Hasan_Front-End_Developer_Dnipro.pdf"
                 className="flex-shrink-0 bg-emerald-500 hover:bg-emerald-600 text-white px-3 py-2 rounded-lg font-semibold transition-all duration-300 transform active:scale-95 flex items-center justify-center cursor-pointer shadow-lg shadow-emerald-500/20"
-                title="Download PDF"
+                title={t("buttons.downloadTooltip")}
               >
                 <Download className="w-5 h-5" />
               </a>
             </div>
+
             <div className="flex items-center space-x-4">
-              {socialLinks.map(({ icon: Icon, href }, index) => (
+              {SOCIAL_LINKS.map(({ icon: Icon, href }, index) => (
                 <motion.a
                   key={index}
                   href={href}

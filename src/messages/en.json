@@ -1,0 +1,110 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contacts": "Contacts"
+  },
+  "Hero": {
+    "greeting": "Hello, I'm",
+    "name": "Kyrylo Hasan",
+    "rolePrefix": "I'm a",
+    "roleMain": "Front-End Developer",
+    "specializingIn": "specializing in",
+    "specializationMain": "Modern Web Applications",
+    "description": "I specialize in building high-performance web interfaces using React, Next.js, and Tailwind CSS. My focus is on writing pixel-perfect, clean code and ensuring seamless mobile responsiveness for every project I bring to life.",
+    "buttons": {
+      "viewCv": "View My CV",
+      "downloadTooltip": "Download PDF"
+    }
+  },
+  "About": {
+    "title": "About Me",
+    "subtitle": "Building digital products with a focus on code quality and performance",
+    "description1": "I am a passionate Front-End Developer dedicated to crafting clean, efficient, and user-centric web applications. My approach combines technical precision with a keen eye for design, ensuring that every project is not only functional but also visually engaging.",
+    "description2": "I specialize in the React ecosystem, leveraging Next.js and Tailwind CSS to build scalable solutions. I am constantly exploring new technologies to stay at the forefront of the industry and deliver modern web experiences that meet the highest standards.",
+    "traits": {
+      "problemSolver": "Problem Solver",
+      "teamPlayer": "Team Player",
+      "quickLearner": "Quick Learner",
+      "detailOriented": "Detail Oriented"
+    },
+    "features": {
+      "cleanCode": {
+        "title": "Clean Code",
+        "description": "Writing maintainable, readable, and efficient code."
+      },
+      "responsive": {
+        "title": "Responsive Design",
+        "description": "Ensuring seamless experience across all devices."
+      }
+    }
+  },
+  "Skills": {
+    "title": "Skills & Technologies",
+    "description": "Here are the modern frameworks, tools, and practices I leverage to bring digital ideas to life."
+  },
+  "Projects": {
+    "title": "My Projects",
+    "sectionDescription": "Here are some of my recent projects that showcase my skills and passion for web development.",
+    "list": {
+      "niceGadgets": {
+        "title": "Nice Gadgets",
+        "description": "A responsive and user-friendly product catalog showcasing various phone models. Users can browse, filter by brand and price, view detailed pages for each phone."
+      },
+      "natureGuardians": {
+        "title": "Nature Guardians",
+        "description": "A responsive and user-friendly website for a nonprofit environmental organization. Users can learn about the mission, explore projects, and make donations."
+      },
+      "creativeBakery": {
+        "title": "Creative Bakery",
+        "description": "A clean and modern landing page for a fictional bakery brand. The design emphasizes soft colors and elegant typography."
+      },
+      "bangOlufsen": {
+        "title": "Bang & Olufsen",
+        "description": "A sleek and modern landing page inspired by Bang & Olufsen, showcasing elegant interior design elements."
+      },
+      "game2048": {
+        "title": "2048 Game",
+        "description": "A browser-based version of the classic 2048 game featuring keyboard controls, score tracking and smooth animations."
+      }
+    }
+  },
+  "Contacts": {
+    "title": "Get In Touch",
+    "description": "I'm always interested in new opportunities and interesting projects. Let's discuss how we can work together!",
+    "form": {
+      "title": "Send me a message",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "placeholder": {
+        "firstName": "Your first name",
+        "lastName": "Your last name",
+        "email": "your.email@example.com",
+        "subject": "Project discussion",
+        "message": "Tell me about your project..."
+      },
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": {
+        "title": "Success!",
+        "message": "Your message has been sent successfully."
+      }
+    },
+    "info": {
+      "title": "Let's connect",
+      "description": "I'm currently available for freelance work and full-time opportunities. Whether you have a project in mind or just want to chat about technology, I'd love to hear from you.",
+      "follow": "Follow me",
+      "labels": {
+        "email": "Email",
+        "phone": "Phone",
+        "location": "Location"
+      }
+    },
+    "footer": "© 2026 Kyrylo Hasan. Designed & Built with ❤️ using Next.js and Tailwind CSS."
+  }
+}

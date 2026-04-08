@@ -1,6 +1,9 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
+import { useTranslations } from "next-intl";
+
+import { SKILLS } from "../constants/skills";
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -16,25 +19,7 @@ const itemVariants: Variants = {
 };
 
 export function SkillsSection() {
-  const skills = [
-    "HTML5",
-    "CSS3",
-    "SCSS",
-    "Bulma",
-    "Tailwind CSS",
-    "Responsive Design",
-    "JavaScript",
-    "React",
-    "Redux",
-    "Next.js",
-    "TypeScript",
-    "Framer Motion",
-    "Lucide Icons",
-    "Git",
-    "GitHub",
-    "Vercel",
-    "Netlify",
-  ];
+  const t = useTranslations("Skills");
 
   return (
     <section
@@ -51,14 +36,12 @@ export function SkillsSection() {
           viewport={{ once: true }}
           className="text-center mb-20 md:mb-28"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Skills & Technologies
-          </h2>
+          <h2 className="text-4xl md:text-5xl text-white mb-6">{t("title")}</h2>
+
           <div className="w-28 h-1.5 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
 
-          <p className="text-white opacity-80 text-lg md:text-xl mt-10 max-w-2xl mx-auto leading-relaxed">
-            Here are the modern frameworks, tools, and practices I leverage to
-            bring digital ideas to life.
+          <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
+            {t("description")}
           </p>
         </motion.div>
 
@@ -68,7 +51,7 @@ export function SkillsSection() {
           viewport={{ once: true, amount: 0.3 }}
           className="flex flex-wrap gap-5 justify-center pt-8"
         >
-          {skills.map((skill, index) => {
+          {SKILLS.map((skill, index) => {
             return (
               <motion.div
                 key={skill}

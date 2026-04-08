@@ -1,0 +1,18 @@
+export const SKILLS = [
+  "HTML5",
+  "CSS3",
+  "SCSS",
+  "Bulma",
+  "Tailwind CSS",
+  "Responsive & Adaptive Web Design",
+  "JavaScript",
+  "React",
+  "Redux",
+  "Next.js",
+  "TypeScript",
+  "Framer Motion",
+  "Git",
+  "GitHub",
+  "Vercel",
+  "Netlify",
+];
