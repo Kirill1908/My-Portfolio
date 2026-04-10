@@ -35,6 +35,18 @@
         "title": "Clean Code",
         "description": "Writing maintainable, readable, and efficient code."
       },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Always exploring new technologies and creative solutions."
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "Working effectively with teams to deliver results."
+      },
+      "dedication": {
+        "title": "Dedication",
+        "description": "Committed to continuous learning and staying current."
+      },
       "responsive": {
         "title": "Responsive Design",
         "description": "Ensuring seamless experience across all devices."
